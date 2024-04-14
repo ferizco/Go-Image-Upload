@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Dashboard!</h1>
+        <div class="user-info">
+            <p>Username: <span id="username">{{ .Username }}</span></p>
+            <p>Email: <span id="email">{{ .Email }}</span></p>
+            <!-- Form untuk logout -->
+            <form id="logout-form" action="/logout" method="GET">
+                <button type="submit">Logout</button>
+            </form>
+            <button id="open-modal-btn">Add Image</button>
+        </div>
+
+        <div class="slideshow-container">
+            {{ range .ImageData }}
+            <div class="mySlides">
+                <img src="{{ .URL }}" alt="{{ .Subject }}" style="width:100%">
+                <div class="caption">{{ .Subject }}
+                    <form action="/delete-image/{{ .ID }}" method="POST">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {{ end }}
+        
+            <!-- Tombol prev dan next -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Submit Form</h2>
+            <form id="submit-form" action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+                <br>
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script src="modal.js"></script>
+</html>
