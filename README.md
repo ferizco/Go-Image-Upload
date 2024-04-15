@@ -38,12 +38,12 @@ Web Application to store image built using Go Fiber and Postgresql with security
 | API | Description | Status |
 | ----- | ---------- | -----|
 | / | index page | Passed |
-| api/user/login | for login | Passed |
-| api/user/dashboard | show dashboard | Passed |
-| api/user/logout | for logout | Passed |
-| api/user/signup | for signup | Passed |
-| api/image/upload | for upload image | Passed |
-| api/image/delete-image/:id | for delete image | Passed |
+| /api/user/login | for login | Passed |
+| /api/user/dashboard | show dashboard | Passed |
+| /api/user/logout | for logout | Passed |
+| /api/user/signup | for signup | Passed |
+| /api/image/upload | for upload image | Passed |
+| /api/image/delete-image/:id | for delete image | Passed |
 
 For testing evidence please follow this link 
 
