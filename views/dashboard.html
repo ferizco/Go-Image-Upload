@@ -15,7 +15,7 @@
             <p>Username: <span id="username">{{ .Username }}</span></p>
             <p>Email: <span id="email">{{ .Email }}</span></p>
             <!-- Form untuk logout -->
-            <form id="logout-form" action="/logout" method="GET">
+            <form id="logout-form" action="/api/user/logout" method="GET">
                 <button type="submit">Logout</button>
             </form>
             <button id="open-modal-btn">Add Image</button>
@@ -24,9 +24,9 @@
         <div class="slideshow-container">
             {{ range .ImageData }}
             <div class="mySlides">
-                <img src="{{ .URL }}" alt="{{ .Subject }}" style="width:100%">
+                <img src="/api/image/{{ .URL }}" alt="{{ .Subject }}" style="width:100%">
                 <div class="caption">{{ .Subject }}
-                    <form action="/delete-image/{{ .ID }}" method="POST">
+                    <form action="/api/image/delete-image/{{ .ID }}" method="POST">
                         <button type="submit" class="delete-btn">
                             <i class="fa fa-trash" aria-hidden="true"></i> <!-- Icon delete -->
                         </button>
@@ -46,7 +46,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Submit Form</h2>
-            <form id="submit-form" action="/upload" method="POST" enctype="multipart/form-data">
+            <form id="submit-form" action="/api/image/upload" method="POST" enctype="multipart/form-data">
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
                 <br>

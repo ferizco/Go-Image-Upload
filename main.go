@@ -33,14 +33,21 @@ func main() {
 
 	// Routes
 	app.Static("/", "./views")
-	app.Static("/uploads", "./uploads")
+	app.Static("/api/user/", "./views")
+	app.Static("/api/image/", "./views")
+	app.Static("/api/image/uploads/", "./uploads")
+
+	api := app.Group("/api")
+	user := api.Group("/user")
+	image := api.Group("/image")
+
 	app.Get("/", myApp.HandleIndex)
-	app.Post("/login", middleware.LoginLimiter(), myApp.HandleLogin)
-	app.Get("/dashboard", middleware.CheckJWT(myApp), middleware.CSRFMiddleware(), myApp.HandleDashboard)
-	app.Get("/logout", myApp.HandleLogout)
-	app.Post("/signup", myApp.HandleSignup)
-	app.Post("/upload", middleware.CheckJWT(myApp), myApp.HandleUpload)
-	app.Post("/delete-image/:id", middleware.CheckJWT(myApp), myApp.HandleDeleteImage)
+	user.Post("/login", middleware.LoginLimiter(), myApp.HandleLogin)
+	user.Get("/dashboard", middleware.CheckJWT(myApp), middleware.CSRFMiddleware(), myApp.HandleDashboard)
+	user.Get("/logout", myApp.HandleLogout)
+	user.Post("/signup", myApp.HandleSignup)
+	image.Post("/upload", middleware.CheckJWT(myApp), myApp.HandleUpload)
+	image.Post("/delete-image/:id", middleware.CheckJWT(myApp), myApp.HandleDeleteImage)
 
 	log.Fatal(app.Listen(":5000"))
 }

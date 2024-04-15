@@ -8,7 +8,7 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form id="signup-form" action="/signup" method="post">
+		<form id="signup-form" action="/api/user/signup" method="post">
 			<h1>Create Account</h1>
 			<span>or use your email for registration</span>
 			<input type="text" name="username" placeholder="Username" required />
@@ -19,7 +19,7 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="/login" method="post">
+		<form action="/api/user/login" method="post">
 			<h1>Sign in</h1>
 			<input type="text" name="username" placeholder="Username" required />
 			<input type="password" name="password" placeholder="Password" required />

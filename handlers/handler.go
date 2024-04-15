@@ -91,7 +91,7 @@ func (app *App) HandleLogin(c *fiber.Ctx) error {
 		Path:     "/",
 	})
 
-	return c.Redirect("/dashboard")
+	return c.Redirect("/api/user/dashboard")
 }
 
 func (app *App) HandleDashboard(c *fiber.Ctx) error {
@@ -246,7 +246,7 @@ func (app *App) HandleUpload(c *fiber.Ctx) error {
 	}
 
 	// Redirect to dashboard or another page
-	return c.Redirect("/dashboard")
+	return c.Redirect("/api/user/dashboard")
 }
 
 // Function to delete image from database and file directory
@@ -288,7 +288,7 @@ func (app *App) HandleDeleteImage(c *fiber.Ctx) error {
 		fmt.Println("Error:", err)
 	}
 	// Redirect to dashboard or another page
-	return c.Redirect("/dashboard")
+	return c.Redirect("/api/user/dashboard")
 }
 
 // Function to encrypt a JWT token using AES encryption
