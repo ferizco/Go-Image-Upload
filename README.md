@@ -30,7 +30,7 @@ Web Application to store image built using Go Fiber and Postgresql with security
 
 ### How to Start 
 1. Install GO and Postgresql
-2. in database.go file on dsn variable set up the db configuration (user=xxxx password=xxxx dbname=xxxx port=5432)
+2. in database.go file on dsn variable set up the db configuration (user=USER_DB password=PASSWORD_USER_DB dbname=DB_NAME port=DB_PORT)
 3. run the go server in terminal
 4. open localhost on port 5000
 
@@ -45,7 +45,7 @@ Web Application to store image built using Go Fiber and Postgresql with security
 | /api/image/upload | for upload image | Passed |
 | /api/image/delete-image/:id | for delete image | Passed |
 
-For evidence testing please follow this link 
+for evidence of testing please follow the link below
 
 [![Youtube](https://img.youtube.com/vi/ox77gO_zs0Q/0.jpg)](https://www.youtube.com/watch?v=ox77gO_zs0Q)
 
