@@ -31,8 +31,21 @@ Web Application to store image built using Go Fiber and Postgresql with security
 ### How to Start 
 1. Install GO and Postgresql
 2. in database.go file on dsn variable set up the db configuration (user=xxxx password=xxxx dbname=xxxx port=5432)
-3. run the server go in terminal
+3. run the go server in terminal
 4. open localhost on port 5000
+
+### Functional Test 
+| API | Description | Status |
+| ----- | ---------- | -----|
+| / | index page | Passed |
+| /login | for login | Passed |
+| /dashboard | show dashboard | Passed |
+| /logout | for logout | Passed |
+| /signup | for signup | Passed |
+| /upload | for upload image | Passed |
+| /delete-image/:id | for delete image | Passed |
+
+For testing evidence please follow this link 
 
 ### User Interface
 <img src="https://github.com/ferizco/Go-Image-Uploadv2/assets/71595406/d8e8f933-06dc-4861-99dd-6a7c6abca3f7" alt="Alt Text" width="500">
