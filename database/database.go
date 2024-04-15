@@ -21,6 +21,7 @@ func InitDatabase() *gorm.DB {
 
 	// Migrate the schema
 	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Image{})
 
 	return db
 }
