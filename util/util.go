@@ -43,4 +43,5 @@ func ValidateImageFormat(file *multipart.FileHeader) error {
 		}
 	}
 	return fiber.NewError(fiber.StatusBadRequest, "Invalid image format. Only JPG, JPEG, PNG, and GIF are allowed.")
+
 }

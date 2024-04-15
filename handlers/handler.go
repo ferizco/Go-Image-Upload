@@ -218,12 +218,12 @@ func (app *App) HandleUpload(c *fiber.Ctx) error {
 
 	// Validate image size
 	if err := util.ValidateImageSize(file); err != nil {
-		return err
+		return c.Status(fiber.StatusUnauthorized).Redirect("/api/user/dashboard?message=Image%20to%20big%20try%20under%201MB&type=error")
 	}
 
 	// Validate image format
 	if err := util.ValidateImageFormat(file); err != nil {
-		return err
+		return c.Status(fiber.StatusBadRequest).Redirect("/api/user/dashboard?message=Invalid%20image%20format&type=error")
 	}
 
 	// Get username from claims
