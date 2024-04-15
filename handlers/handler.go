@@ -171,7 +171,6 @@ func (app *App) HandleSignup(c *fiber.Ctx) error {
 	// Check if user already exists
 	var existingUser models.User
 	if err := app.DB.Where("username = ?", signupReq.Username).First(&existingUser).Error; err == nil {
-		// return fiber.NewError(fiber.StatusBadRequest, "Username already exists")
 		return c.Status(fiber.StatusBadRequest).Redirect("/?message=Username%20already%20exists&type=error")
 	}
 

@@ -355,6 +355,8 @@ body {
   height: auto; /* Tinggi gambar akan disesuaikan */
   box-sizing: border-box; /* Menghitung border dan padding ke dalam ukuran elemen */
   padding: 5px; /* Beri jarak antara gambar */
+  display: flex;
+	align-items: center;
   }
   
   /* Style for images in slides */
@@ -412,6 +414,7 @@ body {
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
+	margin-left: 10px;
 }
 
 .delete-btn {
@@ -422,9 +425,11 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+	background: none;
 }
 
 .delete-btn:hover {
     background-color: #cc0000; /* Merah lebih tua saat hover */
 }
+
 

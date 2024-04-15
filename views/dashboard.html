@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <div class="container">
@@ -25,7 +27,9 @@
                 <img src="{{ .URL }}" alt="{{ .Subject }}" style="width:100%">
                 <div class="caption">{{ .Subject }}
                     <form action="/delete-image/{{ .ID }}" method="POST">
-                        <button type="submit" class="delete-btn">Delete</button>
+                        <button type="submit" class="delete-btn">
+                            <i class="fa fa-trash" aria-hidden="true"></i> <!-- Icon delete -->
+                        </button>
                     </form>
                 </div>
             </div>

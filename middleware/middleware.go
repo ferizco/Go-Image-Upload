@@ -49,7 +49,7 @@ func CheckJWT(app *handlers.App) fiber.Handler {
 func CSRFMiddleware() fiber.Handler {
 	return csrf.New(csrf.Config{
 		CookieSameSite: "Strict",
-		Expiration:     10 * time.Minute,
+		Expiration:     5 * time.Hour,
 		KeyLookup:      "header:X-Csrf-Token",
 	})
 }
@@ -68,7 +68,7 @@ func LoggingMiddleware() fiber.Handler {
 	}
 
 	logger := logger.New(logger.Config{
-		Format:     "${time} - ${ip} - ${status} - ${statusText} - ${method} - ${path}\n",
+		Format:     "${time} - ${ip} - ${status} - ${method} - ${path} - ${error}\n",
 		TimeFormat: "2006-01-02 15:04:05",
 		Output:     file,
 	})
